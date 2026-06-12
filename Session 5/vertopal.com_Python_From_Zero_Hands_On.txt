@@ -1,0 +1,986 @@
+
+
+🐍 Python from Zero — A Hands-On Session for Absolute Beginners
+
+Welcome! 👋 You do not need any coding experience to follow this
+notebook.
+
+By the end of this session you will be able to:
+
+-   Make the computer show things on the screen with print()
+-   Store information in variables
+-   Work with text, numbers, and True/False values
+-   Organize data using lists, tuples, dictionaries, and sets
+-   Make decisions with if / else
+-   Repeat work with loops
+-   Package reusable code into functions
+-   Draw your first charts and plots 📊
+
+------------------------------------------------------------------------
+
+How to use this notebook
+
+1.  A code cell is the grey box with code in it.
+2.  Click on a cell, then press Shift + Enter to run it.
+3.  The result appears right below the cell — that is called the output.
+4.  Run the cells in order, from top to bottom. Don't skip!
+
+  💡 Tip for the trainer: Encourage learners to change a number or a
+  word in each cell and re-run it. Breaking things and fixing them is
+  how programming is learned.
+
+Let's begin! 🚀
+
+1. Your First Program — print()
+
+print() is how Python talks to you. Whatever you put inside the
+brackets, Python shows on the screen.
+
+The text must be wrapped in quotes — either 'single' or "double". Both
+work the same.
+
+    print("Hello, World!")
+
+    Hello, World!
+
+    # Single quotes work exactly the same way
+    print('Hello, friends!')
+
+    # You can print many lines by using print() many times
+    print("Welcome")
+    print("to")
+    print("Python")
+
+    Hello, friends!
+    Welcome
+    to
+    Python
+
+Printing more than one thing at once
+
+Separate items with a comma. Python automatically puts a space between
+them.
+
+    print("My name is", "Umar")
+    print("I have", 3, "apples")          # mixing text and numbers is fine
+    print("Python", "is", "fun", "!")
+
+    My name is Umar
+    I have 3 apples
+    Python is fun !
+
+sep — change the separator between items
+
+By default Python joins items with a space. You can change that with
+sep=.
+
+    print("2024", "11", "25", sep="-")     # great for dates
+    print("a", "b", "c", sep=" -> ")
+    print("no", "spaces", "here", sep="")
+
+    2024-11-25
+    a -> b -> c
+    nospaceshere
+
+end — change what happens at the end of a print
+
+Normally print jumps to a new line at the end. You can stop that with
+end=.
+
+    print("Loading", end="")
+    print(".", end="")
+    print(".", end="")
+    print(". Done!")            # all of this prints on ONE line
+
+    Loading... Done!
+
+Special characters inside text
+
+-   \n makes a new line
+-   \t makes a tab (a big space)
+-   To print an actual quote, you can mix quote types.
+
+    print("Line one\nLine two\nLine three")
+    print("Name:\tUmar")
+    print("She said \"Python is easy!\"")
+    print('It\'s a beautiful day')
+
+    Line one
+    Line two
+    Line three
+    Name:	Umar
+    She said "Python is easy!"
+    It's a beautiful day
+
+2. Comments — Notes for Humans
+
+Anything after a # is a comment. Python ignores it completely. Comments
+are notes for you and other people reading the code.
+
+    # This whole line is a comment - Python skips it
+    print("This line runs")   # this part after the # is also ignored
+
+    # print("This line does NOT run because it is commented out")
+
+    This line runs
+
+3. Variables — Boxes that Store Information
+
+A variable is a labelled box. You put something in it, give it a name,
+and use that name later.
+
+The = sign means "store the value on the right into the name on the
+left".
+
+    name = "Umar"
+    age = 25
+    height = 5.9
+
+    print(name)
+    print(age)
+    print(height)
+
+    Umar
+    25
+    5.9
+
+You can use variables in calculations and reuse them as many times as
+you like.
+
+    price = 100
+    quantity = 3
+    total = price * quantity      # multiply them and store the result
+
+    print("Price per item:", price)
+    print("Quantity:", quantity)
+    print("Total cost:", total)
+
+    Price per item: 100
+    Quantity: 3
+    Total cost: 300
+
+Variables can be changed (re-assigned) at any time.
+
+    score = 10
+    print("Score now:", score)
+
+    score = score + 5             # take the old score, add 5, store it back
+    print("Score after bonus:", score)
+
+    Score now: 10
+    Score after bonus: 15
+
+Naming rules (important!)
+
+-   ✅ Use letters, numbers and underscores: first_name, total2,
+    user_age
+-   ❌ Cannot start with a number: 2cool is invalid
+-   ❌ No spaces: use my_name, not my name
+-   📌 Names are case-sensitive: Age and age are two different boxes.
+
+4. Data Types — The Kinds of Information
+
+Python data comes in different types. The four you'll meet first:
+
+  Type    Name             Example
+  ------- ---------------- -------------
+  int     whole number     7, -3, 1000
+  float   decimal number   3.14, -0.5
+  str     text (string)    "hello"
+  bool    True / False     True, False
+
+You can ask Python the type of anything with type().
+
+    print(type(7))
+    print(type(3.14))
+    print(type("hello"))
+    print(type(True))
+
+    <class 'int'>
+    <class 'float'>
+    <class 'str'>
+    <class 'bool'>
+
+    # Storing each type in a variable
+    whole_number = 42
+    decimal_number = 3.14159
+    some_text = "Python"
+    is_fun = True
+
+    print(whole_number, "->", type(whole_number))
+    print(decimal_number, "->", type(decimal_number))
+    print(some_text, "->", type(some_text))
+    print(is_fun, "->", type(is_fun))
+
+    42 -> <class 'int'>
+    3.14159 -> <class 'float'>
+    Python -> <class 'str'>
+    True -> <class 'bool'>
+
+Converting between types
+
+Sometimes you need to change a number into text, or text into a number.
+
+    number = 100
+    text_version = str(number)        # int -> string
+    print("As text:", text_version, type(text_version))
+
+    text = "55"
+    number_version = int(text)        # string -> int
+    print("As number:", number_version, type(number_version))
+
+    print("Decimal:", float("3.5"))   # string -> float
+
+    As text: 100 <class 'str'>
+    As number: 55 <class 'int'>
+    Decimal: 3.5
+
+5. Strings — Working with Text
+
+Text (a string) can be joined, repeated, measured, and transformed.
+
+Joining text with + (concatenation)
+
+    first = "Muhammad"
+    last = "Umar"
+
+    full_name = first + " " + last     # + glues strings together
+    print(full_name)
+    print("Hello, " + full_name + "!")
+
+    Muhammad Umar
+    Hello, Muhammad Umar!
+
+Repeating text with *
+
+    print("ha" * 3)
+    print("=" * 30)            # a neat way to draw a line
+    print("Na" * 4 + " Batman!")
+
+    hahaha
+    ==============================
+    NaNaNaNa Batman!
+
+Measuring length with len()
+
+    word = "Python"
+    print("The word is:", word)
+    print("Number of letters:", len(word))
+
+    The word is: Python
+    Number of letters: 6
+
+Picking characters — indexing & slicing
+
+Python counts positions starting from 0.
+
+     P  y  t  h  o  n
+     0  1  2  3  4  5
+
+    word = "Python"
+
+    print("First letter :", word[0])     # P
+    print("Third letter :", word[2])     # t
+    print("Last letter  :", word[-1])    # n  (negative counts from the end)
+
+    print("First three  :", word[0:3])   # Pyt  (from 0 up to, not including, 3)
+    print("From 2 onward:", word[2:])    # thon
+
+    First letter : P
+    Third letter : t
+    Last letter  : n
+    First three  : Pyt
+    From 2 onward: thon
+
+Handy string methods
+
+A method is an action you attach to a value with a dot .
+
+    sentence = "  hello PYTHON world  "
+
+    print("Original   :", sentence)
+    print("upper()    :", sentence.upper())
+    print("lower()    :", sentence.lower())
+    print("title()    :", sentence.title())
+    print("strip()    :", sentence.strip())          # removes outer spaces
+    print("replace()  :", sentence.replace("world", "everyone"))
+    print("split()    :", sentence.split())          # breaks into a list of words
+
+    Original   :   hello PYTHON world  
+    upper()    :   HELLO PYTHON WORLD  
+    lower()    :   hello python world  
+    title()    :   Hello Python World  
+    strip()    : hello PYTHON world
+    replace()  :   hello PYTHON everyone  
+    split()    : ['hello', 'PYTHON', 'world']
+
+⭐ f-strings — the best way to mix text and variables
+
+Put an f before the quotes, then drop variables inside { }. Clean and
+readable.
+
+    name = "Umar"
+    age = 25
+    city = "Ulsan"
+
+    print(f"My name is {name}.")
+    print(f"I am {age} years old and I live in {city}.")
+    print(f"Next year I will be {age + 1}.")        # you can even do math inside!
+    print(f"Pi rounded: {3.14159:.2f}")             # :.2f shows 2 decimal places
+
+    My name is Umar.
+    I am 25 years old and I live in Ulsan.
+    Next year I will be 26.
+    Pi rounded: 3.14
+
+6. Numbers & Math
+
+Python is a powerful calculator. Here are the math operators:
+
+  Symbol   Meaning          Example   Result
+  -------- ---------------- --------- --------
+  +        add              5 + 2     7
+  -        subtract         5 - 2     3
+  *        multiply         5 * 2     10
+  /        divide           5 / 2     2.5
+  //       divide (whole)   5 // 2    2
+  %        remainder        5 % 2     1
+  **       power            5 ** 2    25
+
+    a = 17
+    b = 5
+
+    print(f"{a} + {b}  = {a + b}")
+    print(f"{a} - {b}  = {a - b}")
+    print(f"{a} * {b}  = {a * b}")
+    print(f"{a} / {b}  = {a / b}")
+    print(f"{a} // {b} = {a // b}   (whole-number division)")
+    print(f"{a} % {b}  = {a % b}    (the remainder)")
+    print(f"{a} ** {b} = {a ** b}  (a to the power of b)")
+
+    17 + 5  = 22
+    17 - 5  = 12
+    17 * 5  = 85
+    17 / 5  = 3.4
+    17 // 5 = 3   (whole-number division)
+    17 % 5  = 2    (the remainder)
+    17 ** 5 = 1419857  (a to the power of b)
+
+Order of operations
+
+Python follows normal math rules (brackets first, then powers, then × ÷,
+then + −).
+
+    print(2 + 3 * 4)        # 14, because 3*4 happens first
+    print((2 + 3) * 4)      # 20, brackets force the addition first
+    print(10 - 2 ** 3)      # 2, because 2**3 = 8 happens first
+
+    14
+    20
+    2
+
+Useful built-in number helpers
+
+    print("round(3.14159, 2) =", round(3.14159, 2))
+    print("abs(-8)           =", abs(-8))
+    print("max(4, 9, 2)      =", max(4, 9, 2))
+    print("min(4, 9, 2)      =", min(4, 9, 2))
+    print("sum([1, 2, 3, 4]) =", sum([1, 2, 3, 4]))
+
+    round(3.14159, 2) = 3.14
+    abs(-8)           = 8
+    max(4, 9, 2)      = 9
+    min(4, 9, 2)      = 2
+    sum([1, 2, 3, 4]) = 10
+
+7. Getting Input from the User
+
+input() lets your program ask a question and read what the user types.
+
+  ⚠️ In a notebook, input() pauses and waits for typing, so we keep it
+  as a comment here. Copy it into a real .py file or uncomment it to try
+  live during the session.
+
+    name = input("What is your name? ")
+    print("Nice to meet you,", name)
+
+    age = input("How old are you? ")
+    age = int(age)                      # input() always gives text, convert if needed
+    print(f"In 10 years you will be {age + 10}.")
+
+8. Lists — Storing Many Things
+
+A list holds many values in order, inside square brackets [ ].
+
+    fruits = ["apple", "banana", "cherry", "mango"]
+
+    print("The whole list :", fruits)
+    print("How many items :", len(fruits))
+    print("First fruit    :", fruits[0])
+    print("Last fruit     :", fruits[-1])
+    print("First two      :", fruits[0:2])
+
+    The whole list : ['apple', 'banana', 'cherry', 'mango']
+    How many items : 4
+    First fruit    : apple
+    Last fruit     : mango
+    First two      : ['apple', 'banana']
+
+Changing a list
+
+    fruits = ["apple", "banana", "cherry"]
+    print("Start      :", fruits)
+
+    fruits.append("orange")          # add to the end
+    print("After add  :", fruits)
+
+    fruits[0] = "grape"              # change an item
+    print("After edit :", fruits)
+
+    fruits.remove("banana")          # remove an item
+    print("After remove:", fruits)
+
+    fruits.sort()                    # sort alphabetically
+    print("After sort :", fruits)
+
+    Start      : ['apple', 'banana', 'cherry']
+    After add  : ['apple', 'banana', 'cherry', 'orange']
+    After edit : ['grape', 'banana', 'cherry', 'orange']
+    After remove: ['grape', 'cherry', 'orange']
+    After sort : ['cherry', 'grape', 'orange']
+
+Lists can hold numbers too
+
+    scores = [88, 92, 75, 100, 67]
+
+    print("Scores      :", scores)
+    print("Highest     :", max(scores))
+    print("Lowest      :", min(scores))
+    print("Total       :", sum(scores))
+    print("Average     :", sum(scores) / len(scores))
+
+    Scores      : [88, 92, 75, 100, 67]
+    Highest     : 100
+    Lowest      : 67
+    Total       : 422
+    Average     : 84.4
+
+9. Tuples — Lists that Can't Change
+
+A tuple is like a list but fixed — you cannot add, remove, or change
+items. Use it for things that should stay constant (like coordinates or
+days of the week). Tuples use round brackets ( ).
+
+    point = (10, 20)
+    print("Point:", point)
+    print("x =", point[0], "| y =", point[1])
+
+    days = ("Mon", "Tue", "Wed", "Thu", "Fri")
+    print("Number of weekdays:", len(days))
+    print("First day:", days[0])
+
+    # point[0] = 99   <-- this would cause an ERROR because tuples can't change
+
+    Point: (10, 20)
+    x = 10 | y = 20
+    Number of weekdays: 5
+    First day: Mon
+
+10. Dictionaries — Labelled Data (key → value)
+
+A dictionary stores pairs: a key and its value, inside curly braces { }.
+Think of a real dictionary: a word (key) and its meaning (value).
+
+    student = {
+        "name": "Umar",
+        "age": 25,
+        "city": "Ulsan",
+        "gpa": 3.9
+    }
+
+    print("Whole dictionary:", student)
+    print("Name :", student["name"])     # look up a value using its key
+    print("City :", student["city"])
+    print("GPA  :", student["gpa"])
+
+    Whole dictionary: {'name': 'Umar', 'age': 25, 'city': 'Ulsan', 'gpa': 3.9}
+    Name : Umar
+    City : Ulsan
+    GPA  : 3.9
+
+Adding and changing entries
+
+    student = {"name": "Umar", "age": 25}
+
+    student["country"] = "Pakistan"      # add a new key
+    student["age"] = 26                  # change an existing one
+    print("Updated:", student)
+
+    print("Keys  :", list(student.keys()))
+    print("Values:", list(student.values()))
+
+    Updated: {'name': 'Umar', 'age': 26, 'country': 'Pakistan'}
+    Keys  : ['name', 'age', 'country']
+    Values: ['Umar', 26, 'Pakistan']
+
+11. Sets — Collections with No Duplicates
+
+A set automatically removes duplicates. Useful for finding unique items.
+
+    numbers = [1, 2, 2, 3, 3, 3, 4]
+    unique = set(numbers)
+    print("Original list :", numbers)
+    print("Unique values :", unique)
+
+    a = {1, 2, 3, 4}
+    b = {3, 4, 5, 6}
+    print("In both (intersection):", a & b)
+    print("All together (union)  :", a | b)
+
+    Original list : [1, 2, 2, 3, 3, 3, 4]
+    Unique values : {1, 2, 3, 4}
+    In both (intersection): {3, 4}
+    All together (union)  : {1, 2, 3, 4, 5, 6}
+
+12. True / False and Comparisons
+
+Comparisons give a boolean answer: True or False.
+
+  Symbol   Meaning
+  -------- ------------------
+  ==       equal to
+  !=       not equal to
+  >        greater than
+  <        less than
+  >=       greater or equal
+  <=       less or equal
+
+    print("10 == 10 :", 10 == 10)
+    print("10 != 5  :", 10 != 5)
+    print("7 > 3    :", 7 > 3)
+    print("4 < 2    :", 4 < 2)
+    print("5 >= 5   :", 5 >= 5)
+
+    10 == 10 : True
+    10 != 5  : True
+    7 > 3    : True
+    4 < 2    : False
+    5 >= 5   : True
+
+Combining conditions with and, or, not
+
+    age = 20
+    has_ticket = True
+
+    print("Old enough AND has ticket:", age >= 18 and has_ticket)
+    print("Under 12 OR over 65      :", age < 12 or age > 65)
+    print("NOT has_ticket           :", not has_ticket)
+
+    Old enough AND has ticket: True
+    Under 12 OR over 65      : False
+    NOT has_ticket           : False
+
+13. Making Decisions — if / elif / else
+
+Run different code depending on a condition.
+
+  📌 The code inside an if must be indented (pushed in with a tab/4
+  spaces). Indentation is how Python knows what belongs inside.
+
+    temperature = 30
+
+    if temperature > 25:
+        print("It's hot! 🥵 Wear light clothes.")
+    else:
+        print("It's cool. 🧥 Bring a jacket.")
+
+    It's hot! 🥵 Wear light clothes.
+
+Many choices with elif
+
+    score = 85
+
+    if score >= 90:
+        print("Grade: A")
+    elif score >= 80:
+        print("Grade: B")
+    elif score >= 70:
+        print("Grade: C")
+    else:
+        print("Grade: F")
+
+    print("Done checking the grade.")
+
+    Grade: B
+    Done checking the grade.
+
+14. Repeating with for Loops
+
+A for loop does something once for each item in a collection.
+
+    fruits = ["apple", "banana", "cherry"]
+
+    for fruit in fruits:
+        print("I like", fruit)
+
+    print("Loop finished!")
+
+    I like apple
+    I like banana
+    I like cherry
+    Loop finished!
+
+range() — loop a set number of times
+
+    # range(5) gives the numbers 0, 1, 2, 3, 4
+    for i in range(5):
+        print("Count:", i)
+
+    print("---")
+
+    # range(1, 6) goes from 1 up to (not including) 6
+    for n in range(1, 6):
+        print(f"{n} squared is {n ** 2}")
+
+    Count: 0
+    Count: 1
+    Count: 2
+    Count: 3
+    Count: 4
+    ---
+    1 squared is 1
+    2 squared is 4
+    3 squared is 9
+    4 squared is 16
+    5 squared is 25
+
+A practical loop: a multiplication table
+
+    number = 7
+    print(f"Multiplication table of {number}:")
+    for i in range(1, 11):
+        print(f"{number} x {i} = {number * i}")
+
+    Multiplication table of 7:
+    7 x 1 = 7
+    7 x 2 = 14
+    7 x 3 = 21
+    7 x 4 = 28
+    7 x 5 = 35
+    7 x 6 = 42
+    7 x 7 = 49
+    7 x 8 = 56
+    7 x 9 = 63
+    7 x 10 = 70
+
+15. while Loops — Repeat Until a Condition Changes
+
+A while loop keeps running as long as its condition is True.
+
+  ⚠️ Always make sure the condition will eventually become False, or the
+  loop runs forever!
+
+    count = 5
+    while count > 0:
+        print("Counting down:", count)
+        count = count - 1            # this line eventually stops the loop
+
+    print("Lift off! 🚀")
+
+    Counting down: 5
+    Counting down: 4
+    Counting down: 3
+    Counting down: 2
+    Counting down: 1
+    Lift off! 🚀
+
+16. Functions — Reusable Blocks of Code
+
+A function is a named recipe. You define it once, then call it whenever
+you need it. This avoids repeating yourself.
+
+    def greet():
+        print("Hello! Welcome to Python.")
+
+    # Now call it as many times as you want
+    greet()
+    greet()
+
+    Hello! Welcome to Python.
+    Hello! Welcome to Python.
+
+Functions with inputs (parameters)
+
+    def greet_person(name):
+        print(f"Hello, {name}! 👋")
+
+    greet_person("Umar")
+    greet_person("Ayesha")
+    greet_person("Ali")
+
+    Hello, Umar! 👋
+    Hello, Ayesha! 👋
+    Hello, Ali! 👋
+
+Functions that give back an answer (return)
+
+    def add(a, b):
+        return a + b
+
+    def area_of_circle(radius):
+        return 3.14159 * radius ** 2
+
+    result = add(8, 5)
+    print("8 + 5 =", result)
+
+    print("Area of circle (r=4):", area_of_circle(4))
+
+    8 + 5 = 13
+    Area of circle (r=4): 50.26544
+
+17. Drawing Charts & Plots 📊
+
+Now the fun visual part! We use a library called Matplotlib to draw
+charts.
+
+A library is a toolbox someone else built that we can borrow. We bring
+it in with import.
+
+    import matplotlib.pyplot as plt   # the standard way to import it
+    %matplotlib inline
+    print("Matplotlib is ready to draw! 🎨")
+
+    Matplotlib is ready to draw! 🎨
+
+A simple line plot
+
+    x = [1, 2, 3, 4, 5]
+    y = [10, 25, 18, 40, 30]
+
+    plt.figure(figsize=(7, 4))
+    plt.plot(x, y, marker="o", color="teal", linewidth=2)
+    plt.title("My First Line Plot")
+    plt.xlabel("Day")
+    plt.ylabel("Sales")
+    plt.grid(True)
+    plt.show()
+
+[]
+
+A bar chart — great for comparing categories
+
+    subjects = ["Math", "Science", "English", "History"]
+    marks    = [88, 92, 79, 85]
+
+    plt.figure(figsize=(7, 4))
+    plt.bar(subjects, marks, color=["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728"])
+    plt.title("Marks by Subject")
+    plt.xlabel("Subject")
+    plt.ylabel("Marks")
+    plt.ylim(0, 100)
+    plt.show()
+
+[]
+
+A scatter plot — shows individual points
+
+    import random
+    random.seed(1)                          # makes the random numbers repeatable
+
+    x = [random.randint(1, 100) for _ in range(40)]
+    y = [random.randint(1, 100) for _ in range(40)]
+
+    plt.figure(figsize=(7, 4))
+    plt.scatter(x, y, color="purple", alpha=0.6, s=60)
+    plt.title("Scatter Plot of Random Points")
+    plt.xlabel("X value")
+    plt.ylabel("Y value")
+    plt.show()
+
+[]
+
+A pie chart — shows parts of a whole
+
+    labels = ["Sleep", "Study", "Play", "Eat"]
+    hours  = [8, 7, 5, 4]
+    colors = ["#4c72b0", "#dd8452", "#55a868", "#c44e52"]
+
+    plt.figure(figsize=(6, 6))
+    plt.pie(hours, labels=labels, autopct="%1.0f%%", colors=colors, startangle=90)
+    plt.title("How I Spend My Day (24 hours)")
+    plt.show()
+
+[]
+
+Plotting a math function — combining loops, lists & plots
+
+    import math
+
+    x = [i * 0.1 for i in range(0, 63)]      # 0.0, 0.1, 0.2, ... up to ~6.2
+    y_sin = [math.sin(value) for value in x]
+    y_cos = [math.cos(value) for value in x]
+
+    plt.figure(figsize=(8, 4))
+    plt.plot(x, y_sin, label="sin(x)", color="crimson", linewidth=2)
+    plt.plot(x, y_cos, label="cos(x)", color="navy", linewidth=2, linestyle="--")
+    plt.title("Sine and Cosine Waves")
+    plt.xlabel("x")
+    plt.ylabel("value")
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.show()
+
+[]
+
+18. Putting It All Together — A Mini Project 🎓
+
+Let's combine variables, dictionaries, loops, functions, and plotting
+into one small program: a simple student report card.
+
+    # Step 1: store the data in a dictionary
+    report = {
+        "Math": 88,
+        "Science": 95,
+        "English": 72,
+        "History": 80,
+        "Computer": 99
+    }
+
+    # Step 2: a function that turns a number into a letter grade
+    def letter_grade(mark):
+        if mark >= 90:
+            return "A"
+        elif mark >= 80:
+            return "B"
+        elif mark >= 70:
+            return "C"
+        else:
+            return "F"
+
+    # Step 3: print a neat report using a loop
+    print("=" * 32)
+    print("        REPORT CARD")
+    print("=" * 32)
+    for subject, mark in report.items():
+        print(f"{subject:<12} {mark:>3}   Grade: {letter_grade(mark)}")
+    print("=" * 32)
+
+    # Step 4: show some statistics
+    marks = list(report.values())
+    average = sum(marks) / len(marks)
+    print(f"Average mark : {average:.1f}")
+    print(f"Best subject : {max(report, key=report.get)}")
+    print("=" * 32)
+
+    ================================
+            REPORT CARD
+    ================================
+    Math          88   Grade: B
+    Science       95   Grade: A
+    English       72   Grade: C
+    History       80   Grade: B
+    Computer      99   Grade: A
+    ================================
+    Average mark : 86.8
+    Best subject : Computer
+    ================================
+
+Step 5: visualize the report card
+
+    subjects = list(report.keys())
+    marks    = list(report.values())
+
+    plt.figure(figsize=(8, 4))
+    bars = plt.bar(subjects, marks, color="#2a9d8f")
+    plt.axhline(average, color="red", linestyle="--", label=f"Average = {average:.1f}")
+    plt.title("Student Report Card")
+    plt.ylabel("Marks")
+    plt.ylim(0, 110)
+
+    # write the value on top of each bar
+    for bar, mark in zip(bars, marks):
+        plt.text(bar.get_x() + bar.get_width()/2, mark + 2, str(mark), ha="center")
+
+    plt.legend()
+    plt.show()
+
+[]
+
+19. Your Turn — Practice Exercises ✍️
+
+Try these yourself before looking at the solutions below. Type your code
+in the empty cells.
+
+1.  Print your own name and age on two separate lines.
+2.  Create a variable radius = 5 and print the area of a circle (area =
+    3.14159 × radius²).
+3.  Make a list of 5 of your favourite foods and print the third one.
+4.  Write a loop that prints the even numbers from 2 to 10.
+5.  Write a function square(n) that returns n × n, and test it with
+    square(6).
+
+(Empty cells are below for you to try.)
+
+    # Exercise 1 - your code here
+
+    # Exercise 2 - your code here
+
+    # Exercise 3 - your code here
+
+✅ Solutions
+
+Run the cell below to reveal the answers. (In a live session, reveal
+these only after learners attempt the tasks.)
+
+    # --- Solution 1 ---
+    print("Umar")
+    print(25)
+
+    # --- Solution 2 ---
+    radius = 5
+    print("Area:", 3.14159 * radius ** 2)
+
+    # --- Solution 3 ---
+    foods = ["pizza", "biryani", "sushi", "pasta", "tacos"]
+    print("Third food:", foods[2])
+
+    # --- Solution 4 ---
+    for n in range(2, 11, 2):     # the 3rd number, 2, is the step size
+        print(n)
+
+    # --- Solution 5 ---
+    def square(n):
+        return n * n
+
+    print("square(6) =", square(6))
+
+    Umar
+    25
+    Area: 78.53975
+    Third food: sushi
+    2
+    4
+    6
+    8
+    10
+    square(6) = 36
+
+🎉 Congratulations!
+
+You just learned the core building blocks of Python:
+
+✅ print() and its variations (sep, end, special characters) ✅
+Comments, variables, and data types ✅ Strings, numbers, and f-strings
+✅ Lists, tuples, dictionaries, and sets ✅ Comparisons and
+if / elif / else ✅ for and while loops ✅ Functions with parameters and
+return ✅ Plotting with Matplotlib 📊
+
+Where to go next
+
+-   Practice daily — even 20 minutes makes a huge difference.
+-   Build tiny projects: a calculator, a to-do list, a quiz game.
+-   Explore libraries: NumPy (math), Pandas (data), Matplotlib (charts).
+
+  "The expert in anything was once a beginner."
+
+Happy coding! 🐍✨
